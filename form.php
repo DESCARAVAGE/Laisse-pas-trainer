@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Les extensions autorisées
     $authorizedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-    // Le poids max géré par PHP par défaut est de 2M
-    $maxFileSize = 2000000;
+    // Le poids max géré par PHP par défaut est de 1M
+    $maxFileSize = 1000000;
 
     // Je sécurise et effectue mes tests
 
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     /****** On vérifie si l'image existe et si le poids est autorisé en octets *************/
     if (file_exists($_FILES['avatar']['tmp_name']) && filesize($_FILES['avatar']['tmp_name']) > $maxFileSize) {
-        $errors[] = "Votre fichier doit faire moins de 2M !";
+        $errors[] = "Votre fichier doit faire moins de 1M !";
     }
 
     /****** Si je n'ai pas d"erreur alors j'upload *************/
